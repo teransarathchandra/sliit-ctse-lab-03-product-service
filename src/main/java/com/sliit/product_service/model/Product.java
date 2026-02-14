@@ -1,5 +1,6 @@
 package com.sliit.product_service.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,6 +11,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto-increment primary key
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY) // exclude from request body, include in response
     private Long id;
 
     private String name;
